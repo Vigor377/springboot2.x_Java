@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vigor</title>
+    <style>
+        /*body{background: url();}*/
+        body{
+            width:1580px;
+            height:600px;
+            position:relative;
+            text-align:center;
+            line-height:300px;
+            color:black;
+        }
+
+        body::before{
+            content:'';
+            position:absolute;
+            top:0;
+            left:0;
+            width:1580px;
+            height:600px;
+            background:transparent url(https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2074127766,1518323592&fm=26&gp=0.jpg) center center no-repeat;
+            filter:blur(10px);
+            z-index:-1;
+            background-size:cover;
+        }
+        #title{margin-top: 20px;height:70px;position: sticky;top: 0;text-align: center;line-height: 70px;font-family: 等线;font-weight: bolder;}
+        #title a{color: black;text-decoration: none;font-size: 22px;margin-right: 90px}
+    </style>
+</head>
+<body>
+    <div id="title">
+        <div id="logo">
+            <a th:href="@{/}">Index</a>
+            <a th:href="@{/Index/AllBlog}">Blog</a>
+            <a th:href="@{/chat}">Chat</a>
+            <a th:href="@{/Index/wait}">Picture</a>
+            <a th:href="@{/Index/wait}">Music</a>
+            <a th:href="@{/Index/wait}">More</a>
+        </div>
+    </div>
+</body>
+</html>

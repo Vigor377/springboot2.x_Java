@@ -1,0 +1,99 @@
+body{
+    background-image: linear-gradient(to right,#1d75b3,#2C7EEA);
+    /*background: url("https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=326503260,988806648&fm=26&gp=0.jpg");*/
+}
+#contains{
+    /*background-color: whitesmoke;*/
+    width: 1000px;
+    height: 700px;
+    margin: auto;
+
+    background: hsla(0,0%,100%,.3);
+    padding: 40px;
+    border-radius: 20px;
+}
+#username{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #a6e1ec;
+    width: 1000px;
+    height: 50px;
+}
+/*#online{*/
+/*    font-family: 宋体;*/
+/*}*/
+#Inchat{
+    background-color: white;
+    width: 1000px;
+    height: 30px;
+    font-weight: bold;
+    /*font-family: 宋体;*/
+}
+#left{
+    background-color: gainsboro;
+    width: 700px;
+    height: 640px;
+    float: left;
+    position: relative;
+}
+#content{
+    background-color: silver;
+    width: 700px;
+    height: 400px;
+    /*display: none;*/
+    visibility: hidden;
+}
+#right{
+    background-color: #8aa4af;
+    width: 300px;
+    height: 640px;
+    float: right;
+}
+#rightTop{
+    color: #1d75b3;
+    font-weight: bolder;
+}
+#broad{
+    color: #5d59a6;
+    font-weight: bolder;
+}
+#hyList{
+    height: 270px;
+    overflow-y: scroll;
+    background: antiquewhite;
+}
+#xtList{
+    height: 270px;
+    overflow-y: scroll;
+    background: antiquewhite;
+}
+#input{
+    margin-bottom: 0px;
+    position: absolute;
+    bottom: 0px;
+}
+#mes_left{
+    font-family: 楷体;
+    float: left;
+    border: 2px aqua;
+    max-width: 490px;
+}
+#mes_right{
+    font-family: 楷体;
+    float: right;
+    border: 2px aqua;
+    max-width: 490px;
+}
+#hy{
+    display: block;
+    width: 300px;
+}
+textarea {
+    resize: none;
+    border: none;
+    outline: none
+}
+#submit{
+    -webkit-transition-duration: 0.4s; transition-duration: 0.4s; padding: 10px 32px; text-align: center; background-color: white; color: black; border: 2px solid #4CAF50; border-radius:5px;
+}
+#submit:hover { background-color: #4CAF50; color: white; }

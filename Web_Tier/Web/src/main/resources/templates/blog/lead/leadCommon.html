@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--    尾部部分-->
+    <div th:fragment="footer">
+        <footer class="ui inverted vertical segment m-padding-tb-max">
+            <div class="ui center aligned container">
+                <div class="ui inverted divided stackable grid">
+                    <div class="three wide column">
+                        <div class="ui inverted link list">
+                            <div class="item">
+                                <img th:src="@{/images/me.jpg}" class="ui rounded image" style="width: 110px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">博客类型</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item m-text-thin m-text-opacity">计算机专业知识</a>
+                            <a href="#" class="item m-text-thin m-text-opacity">心灵激励</a>
+                            <a href="#" class="item m-text-thin m-text-opacity">IT技术</a>
+                        </div>
+                    </div>
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">联系我</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item m-text-thin m-text-opacity">Wechat：C1622051371</a>
+                            <a href="#" class="item m-text-thin m-text-opacity">QQ：1622051371</a>
+                            <a href="#" class="item m-text-thin m-text-opacity">联系电话：1008611</a>
+                        </div>
+                    </div>
+                    <div class="seven wide column">
+                        <h4 class="ui inverted header">网站简介</h4>
+                        <p class="m-text-thin m-text-opacity">这是我的个人博客</p>
+                    </div>
+                </div>
+                <div class="ui inverted section divider"></div>
+                <p class="m-text-thin m-text-opacity">Copyright &nbsp; 2020-11-27 &nbsp; by &nbsp; ChenPeixin</p>
+            </div>
+        </footer>
+    </div>
+
+<!--    导航部分-->
+    <div th:fragment="nav">
+        <nav style="margin-bottom: 20px;height: 110px;padding-top: 3px" class="ui inverted  attach segment m-padding-tb-mini m-shadow-small">
+            <div class="ui container">
+                <div id="nav" class="ui inverted secondary menu">
+                    <!--                        返回首页按钮-->
+                    <div class="ui icon inverted transparent input" style="width: 30px;height: 40px;position: absolute;left: 50px;top: 35px">
+                        <button class="ui teal button"><a th:href="@{/}" style="color: white">Index</a></button>
+                    </div>
+                    <h1 class="ui teal header item" style="font-size: 40px"><i class="animated hover_" data-in="wobble">Blog</i>
+                    </h1>
+                    <a style="margin-right: 50px;margin-left: 60px" th:href="@{/Index/AllBlog}" class="m-item item m-mobile-hide"><i class="home icon animated hover_" data-in="rotateIn"></i>首页</a>
+                    <a style="margin-right: 50px" th:href="@{/Types/AllTypes}" class=" m-item item m-mobile-hide"><i class="idea icon"></i>类型</a>
+                    <a style="margin-right: 50px" th:href="@{/File/FilePage}" class=" m-item item m-mobile-hide"><i class="file icon"></i>归档</a>
+                    <a style="margin-right: 50px" th:href="@{/Me/PreBloggerPage}" class=" m-item item m-mobile-hide"><i class="info icon"></i>关于博主</a>
+                    <div class="  right m-item item m-mobile-hide">
+                        <div class="ui icon inverted transparent input">
+                            <input type="text" placeholder="Search....">
+                            <i class="search link icon animated hover_" data-in="rubberBand"></i>
+                        </div>
+<!--                        登录按钮-->
+                        <div class="ui icon inverted transparent input" style="margin-left: 50px">
+                            <button class="ui teal button"><i class="user outline icon"></i><a th:href="@{/login}" style="color: white">登 录</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--    &lt;!&ndash;移动端显示按钮&ndash;&gt;-->
+            <!--    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">-->
+            <!--        <i class="sidebar icon"></i>-->
+            <!--    </a>-->
+        </nav>
+    </div>
+
+</body>
+</html>

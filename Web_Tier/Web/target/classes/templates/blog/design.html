@@ -1,0 +1,119 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <script>
+    function del() {
+            if (confirm("您确定要删除吗？")) {
+                return true;
+            } else {
+                return false;
+            }
+    }
+    </script>
+</head>
+<body>
+<!--    导航部分-->
+<div th:include="blog/common :: nav"></div>
+<div class="container clearfix">
+<!--    左边导航-->
+<div th:include="blog/common :: leftBar"></div>
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">作品管理</span></div>
+        </div>
+        <div class="search-wrap">
+            <div class="search-content">
+                <form th:action="@{/Blog/BlogByCondition}" method="post">
+                    <table class="search-tab">
+                        <tr>
+                            <th width="120">选择类型:</th>
+                            <td>
+                                <select name="typeName" >
+                                    <option value="" >全部</option>
+                                    <option th:value="${type.typeName}" th:each="type : ${typeList}" th:text="${type.typeName}">精品界面</option>
+                                </select>
+                            </td>
+                            <th width="70">标题:</th>
+                            <td><input class="common-text" placeholder="标题" name="title" value=""  type="text"></td>
+                            <th width="70">博客内容:</th>
+                            <td><input class="common-text" placeholder="博客内容" name="content" value="" type="text"></td>
+                            <td><input class="btn btn-primary btn2" type="submit"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-title">
+                    <div class="result-list">
+                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                    </div>
+                </div>
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th>类型</th>
+                            <th>标题</th>
+                            <th>审核状态</th>
+                            <th>浏览数</th>
+                            <th>发布人</th>
+                            <th>更新时间</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr th:each="blog : ${BlogListByPage}">
+                            <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
+                            <td th:text="${blog.typeId}">59</td>
+                            <td th:text="${blog.title}"></td>
+                            <td >0</td>
+                            <td th:text="${blog.clickHit}">2</td>
+                            <td >admin</td>
+                            <td th:text="${#dates.format(blog.releaseDate,'yyyy-MM-dd HH:mm')}"></td>
+                            <td>
+                                <a class="link-update" th:href="@{/Blog/UpdatePage/} + ${blog.id}">修改</a>
+                                <a class="link-del"
+                                   onclick="return del()"
+                                   th:value="${blog.id}"
+                                   th:href="@{/Blog/DeleteBlogById/{id}(id=${blog.id})}">
+                                    删除
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="margin-top: 20px">
+                        <form method="post" th:action="@{/Blog/} + ${UrlName}" style="display: inline">
+                            <input type="hidden" name="current" th:value="${prePage}">
+                            <input type="hidden" name="limit" th:value="${limit}">
+                            <input type="hidden" name="typeName" th:value="${typeName}">
+                            <input type="hidden" name="title" th:value="${title}">
+                            <input type="hidden" name="content" th:value="${content}">
+                            <input type="submit" value="上一页" class="btn">
+                        </form>
+<!--                        <button><a style="color: black" th:href="@{/Blog/} + ${UrlName} + '/' + ${prePage} + '/' + ${limit}">上一页</a></button>-->
+
+<!--                        <button><a style="color: black" th:href="@{/Blog/} + ${UrlName} + '/' + ${nextPage} + '/' + ${limit}">下一页</a></button>-->
+                        <form method="post" th:action="@{/Blog/} + ${UrlName}" style="display: inline">
+                            <input type="hidden" name="current" th:value="${nextPage}">
+                            <input type="hidden" name="limit" th:value="${limit}">
+                            <input type="hidden" name="typeName" th:value="${typeName}">
+                            <input type="hidden" name="title" th:value="${title}">
+                            <input type="hidden" name="content" th:value="${content}">
+                            <input type="submit" value="下一页" class="btn">
+                        </form>
+                    </div>
+                    <div class="list-page"> [[${total}]] 条 [[${current}]] / [[${pages}]] 页</div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

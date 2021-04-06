@@ -1,0 +1,80 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <script>
+    function del() {
+            if (confirm("您确定要删除吗？")) {
+                return true;
+            } else {
+                return false;
+            }
+    }
+    </script>
+</head>
+<body>
+<!--    导航部分-->
+<div th:include="blog/common :: nav"></div>
+<div class="container clearfix">
+    <!--    左边导航-->
+    <div th:include="blog/common :: leftBar"></div>
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">类型管理</span></div>
+        </div>
+        <div class="search-wrap">
+            <div class="search-content">
+                <form th:action="@{/BlogType/BlogTypeByCondition}" method="post">
+                    <table class="search-tab">
+                        <tr>
+                            <th width="150"><i class="require-red">⭐</i> 所 查 类 型 ：</th>
+                            <td><input class="common-text" placeholder="关键字" name="typeCondition" value=""  type="text"></td>
+                            <td><input class="btn btn-primary btn2" value="查询" type="submit"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-title">
+                    <div class="result-list">
+                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                        <a style="margin-left: 450px;color: black" class="list-page">共 [[${total}]] 条 </a>
+                    </div>
+                </div>
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th>类型</th>
+                            <th>更新时间</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr th:each="type : ${blogType}">
+                            <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
+                            <td th:text="${type.typeName}">59</td>
+                            <td th:text="${#dates.format(type.releaseDate,'yyyy-MM-dd HH:mm')}"></td>
+                            <td>
+                                <a class="link-del"
+                                   onclick="return del()"
+                                   th:value="${type.id}"
+                                   th:href="@{/BlogType/DeleteBlogTypeById/{id}(id=${type.id})}">
+                                    删除
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

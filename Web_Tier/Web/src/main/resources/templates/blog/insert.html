@@ -1,0 +1,98 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8"/>
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.min.css}">
+</head>
+<body>
+<!--    导航部分-->
+<div th:include="blog/common :: nav"></div>
+<div class="container clearfix">
+<!--    左边导航-->
+<div th:include="blog/common :: leftBar"></div>
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" th:href="@{/Blog/BlogListByPage}">作品管理</a><span class="crumb-step">&gt;</span><span>新增作品</span></div>
+        </div>
+        <div class="result-wrap">
+            <div class="result-content">
+                <form th:action="@{/Blog/SaveBlog}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                    <table class="insert-tab" width="100%">
+                        <tbody><tr>
+                            <th width="120"><i class="require-red">*</i>分类：</th>
+                            <td>
+                                <select name="typeId" id="catid" class="required">
+                                    <option value="">请选择</option>
+                                    <option th:value="${type.typeName}" th:each="type : ${typeList}" th:text="${type.typeName}">精品界面</option>
+                                </select>
+                            </td>
+                        </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>标题：</th>
+                                <td>
+                                    <input class="common-text required" id="title" name="title" size="50" value="" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>简介：</th>
+                                <td>
+                                    <textarea class="common-text" name="summary" style="width: 500px;height: 50px" cols="30" rows="10" type="text"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>推荐：</th>
+                                <td class="radioBox">
+                                    　　<input type="radio" th:value="yes" name="recommend" id="radio_yes">
+                                    　　<label for="radio_yes">是</label>　
+                                    　  <input type="radio" th:value="no" name="recommend" id="radio_no" checked>
+                                    　　<label for="radio_no">否</label>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>首图：</th>
+                                <td><input name="imageFile" id=""  type="file"><!--<input type="submit" onclick="submitForm('/jscss/admin/design/upload')" value="上传图片"/>--></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>内容：</th>
+                                <td>
+                                    <div id="md-content">
+                                        <textarea name="content" class="common-textarea" cols="30" style="width: 98%;display: none" rows="10">
+                                    </textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td>
+                                    <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+                                    <input class="btn btn6" onClick="history.go(-1)" value="返回" type="button">
+                                </td>
+                            </tr>
+                        </tbody></table>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!--/main-->
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script th:src="@{/lib/editormd/editormd.min.js}"></script>
+<script>
+     var contentEditor;
+    $(function(){
+        contentEditor = editormd("md-content",{
+            width: "100%",
+            height: 640,
+            syncScrolling:"single",
+            path: "/lib/editormd/lib/"
+        });
+    });
+</script>
+</html>

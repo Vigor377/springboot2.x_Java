@@ -1,0 +1,4 @@
+#配置mybatis-plus的mapper xml文件的路径
+mybatis-plus:
+  mapper-locations: classpath:com/chen/pei/mapper/xml/*.xml
+

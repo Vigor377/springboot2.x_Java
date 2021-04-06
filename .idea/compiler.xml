@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Shop_Service" />
+        <module name="Blog_Service" />
+        <module name="Chat_Dao" />
+        <module name="Shop_Dao" />
+        <module name="Chat_Service" />
+        <module name="Blog_Dao" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Chat_Service" target="13" />
+      <module name="common" target="13" />
+      <module name="Web" target="13" />
+      <module name="WelcomePage" target="13" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Blog_Dao" options="-parameters" />
+      <module name="Blog_Service" options="-parameters" />
+      <module name="Chat_Dao" options="-parameters" />
+      <module name="Chat_Service" options="-parameters" />
+      <module name="Dao_Tier" options="-parameters" />
+      <module name="Service_Tier" options="-parameters" />
+      <module name="Shop_Dao" options="-parameters" />
+      <module name="Shop_Service" options="-parameters" />
+      <module name="Web" options="-parameters" />
+      <module name="Web_Tier" options="-parameters" />
+      <module name="WelcomePage" options="-parameters" />
+      <module name="common" options="-parameters" />
+    </option>
+  </component>
+</project>

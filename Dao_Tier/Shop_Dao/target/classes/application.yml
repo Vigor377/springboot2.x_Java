@@ -1,0 +1,4 @@
+#����mybatis��mapper xml�ļ���·��
+mybatis:
+    mapper-locations:  classpath:com/chen/pei/mapper/*.xml
+    type-aliases-package: com.chen.pei.entity

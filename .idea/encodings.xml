@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Dao_Tier/Blog_Dao/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Dao_Tier/Chat_Dao/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Dao_Tier/Shop_Dao/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Dao_Tier/Shop_Dao/src/main/java/com/chen/pei/mapper/xml/GoodsCategory.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Service_Tier/Blog_Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Service_Tier/Blog_Service/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Service_Tier/Chat_Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Service_Tier/Shop_Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/static/bootstrap" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/static/css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/static/css/animate.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/static/dist" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/static/images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/static/images/me.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/static/img" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/static/js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/static/lib" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/static/plugins" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/templates/shop/goods/category/category-add.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/templates/shop/goods/category/category-list.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/templates/shop/index.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Web_Tier/Web/src/main/resources/templates/shop/welcome.html" charset="GBK" />
+  </component>
+</project>

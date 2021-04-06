@@ -1,0 +1,170 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<!--    导航部分-->
+<div th:include="blog/common :: nav"></div>
+<div class="container clearfix">
+    <!--    左边导航-->
+    <div th:include="blog/common :: leftBar"></div>
+    <!--/sidebar-->
+    <div class="main-wrap">
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">博主设置</span></div>
+        </div>
+        <div class="result-wrap">
+            <form th:action="@{/Blogger/BloggerUpdate}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                <div class="config-items">
+                    <div class="config-title">
+                        <h1><i class="icon-font">&#xe00a;</i>博主信息修改</h1>
+                    </div>
+                    <div class="result-content">
+                        <table width="100%" class="insert-tab">
+                            <tbody>
+                            <tr>
+                                <th width="15%"><i class="require-red">*</i>更换头像：</th>
+                                <td><img style="width: 200px;height: 200px" th:src="${blogger.imageName}"></td>
+                                <td style="position: absolute;left: 650px;top: 200px"><input onchange="fileChange(this);" type="file" id="" value="#" name="imageFile"></td>
+                            </tr>
+                            <tr>
+                                <th width="15%"><i class="require-red">*</i>用户名：</th>
+                                <td><input type="text" id="" th:value="${blogger.nickName}" size="85" name="nickName" class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th width="15%"><i class="require-red">*</i>密码：</th>
+                                <td><input type="password" id="password" th:value="${blogger.password}" size="25" name="password" class="common-text">    &nbsp;<i id="p" onclick="change()" class="icon-font" style="cursor: pointer">&#xe015;</i></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>姓名：</th>
+                                <td><input type="text" id="" th:value="${blogger.userName}" size="85" name="userName" class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>个性签名：</th>
+                                <td><input type="text" id="" th:value="${blogger.sign}" size="85" name="sign" class="common-text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>个人信息：</th>
+                                <td><textarea type="text" id="" th:text="${blogger.profile}" size="185" name="profile" style="width: 650px;height: 200px" class="common-text"></textarea></td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td>
+                                    <input type="submit" value="提交" class="btn btn-primary btn6 mr10">
+                                    <input type="button" value="返回" onClick="history.go(-1)" class="btn btn6">
+                                </td>
+                            </tr>
+                            </tbody></table>
+                    </div>
+                </div>
+<!--                <div class="config-items">-->
+<!--                    <div class="config-title">-->
+<!--                        <h1><i class="icon-font">&#xe014;</i>站长信息设置</h1>-->
+<!--                    </div>-->
+<!--                    <div class="result-content">-->
+<!--                        <table width="100%" class="insert-tab">-->
+<!--                            <tr>-->
+<!--                                <th width="15%"><i class="require-red">*</i>网站联系邮箱：</th>-->
+<!--                                <td><input type="text" id="" value="monkey@lmonkey.com" size="85" name="email" class="common-text"></td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <th><i class="require-red">*</i>联系人：</th>-->
+<!--                                <td><input type="text" id="" value="学习猿地" size="85" name="contact" class="common-text"></td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <th><i class="require-red">*</i>联系电话：</th>-->
+<!--                                <td><input type="text" id="" value="123456" size="85" name="phone" class="common-text"></td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <th><i class="require-red">*</i>备案ICP：</th>-->
+<!--                                <td><input type="text" id="" value="哥在北京" size="85" name="icp" class="common-text"></td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <th><i class="require-red">*</i>地址：</th>-->
+<!--                                <td><input type="text" id="" value="中国 • 北京" size="85" name="address" class="common-text"></td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <th></th>-->
+<!--                                <td>-->
+<!--                                    <input type="hidden" value="siteConf.inc.php" name="file">-->
+<!--                                    <input type="submit" value="提交" class="btn btn-primary btn6 mr10">-->
+<!--                                    <input type="button" value="返回" onClick="history.go(-1)" class="btn btn6">-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        </table>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </form>
+        </div>
+    </div>
+    <!--/main-->
+</div>
+</body>
+<script type="text/javascript">
+
+<!--显示密码-->
+        function change(){
+            let password = document.getElementById("password")
+            if(password.type === "password"){
+                password.type = "text"
+            }else{
+                password.type = "password"
+            }
+        };
+
+<!--处理文件过大问题-->
+    var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
+    function fileChange(target,id) {
+        var fileSize = 0;
+        var filetypes =[".jpg",".png",".rar",".txt",".zip",".doc",".ppt",".xls",".pdf",".docx",".xlsx"];
+        var filepath = target.value;
+        var filemaxsize = 1024;//1M
+        if(filepath){
+            var isnext = false;
+            var fileend = filepath.substring(filepath.lastIndexOf("."));
+            if(filetypes && filetypes.length>0){
+                for(var i =0; i<filetypes.length;i++){
+                    if(filetypes[i]==fileend){
+                        isnext = true;
+                        break;
+                    }
+                }
+            }
+            if(!isnext){
+                alert("不接受此文件类型！");
+                target.value ="";
+                return false;
+            }
+        }else{
+            return false;
+        }
+        if (isIE && !target.files) {
+            var filePath = target.value;
+            var fileSystem = new ActiveXObject("Scripting.FileSystemObject");
+            if(!fileSystem.FileExists(filePath)){
+                alert("附件不存在，请重新输入！");
+                return false;
+            }
+            var file = fileSystem.GetFile (filePath);
+            fileSize = file.Size;
+        } else {
+            fileSize = target.files[0].size;
+        }
+
+        var size = fileSize / 1024;
+        if(size>filemaxsize){
+            alert("附件大小不能大于"+filemaxsize/1024+"M！");
+            target.value ="";
+            return false;
+        }
+        if(size<=0){
+            alert("附件大小不能为0M！");
+            target.value ="";
+            return false;
+        }
+    }
+</script>
+</html>

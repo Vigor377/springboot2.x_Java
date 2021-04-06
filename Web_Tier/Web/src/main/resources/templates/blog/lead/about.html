@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/me.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+</head>
+<body>
+<div th:include="blog/lead/leadCommon :: nav"></div>
+
+<div  style="margin-top: 60px">
+    <div class="m-container m-padding-tb-max animated flipInX">
+        <div class="ui container">
+            <div class="ui stackable grid">
+                <div class="eleven wide column">
+                    <img th:src="${blogger.imageName}" alt="" class="ui rounded image">
+                </div>
+                <div class="five wide column">
+                    <div class="ui top attached segment">
+                        <div class="ui header">关于我</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <p class="m-text" th:text="${blogger.profile}">陈沛欣，嘉应学院计算机在读大二，对编程充满好奇。对前后端的实现充满了新奇且向往实现。好好努力吧！</p>
+                        <p class="m-text" th:text="${blogger.sign}">热爱编程，喜欢折腾，正在探索高效学习编程技术的方法</p>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">编程</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">写作</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">运动</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">思考</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">睡觉</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <div th:each="type : ${allBlogType}" th:text="${type.typeName}" class="ui teal basic left pointing label m-margin-tb-tiny">Java</div>
+                    </div>
+                    <div class="ui bottom attached segment">
+                        <a href="#" class="ui circular icon button"><i class="github icon"></i></a>
+                        <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                        <a href="#" class="ui qq circular icon button" data-content="1622051371"
+                           data-position="bottom center"><i class="qq icon"></i></a>
+                    </div>
+
+                    <div class="ui wechat-qr flowing popup transition hidden bottom center">
+                        <img src="./static/images/me.jpg" alt="" class="ui rounded image" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div th:include="blog/lead/leadCommon :: footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+<script>
+
+
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+    $('.wechat').popup({
+        popup: $('.wechat-qr'),
+        on: 'hover',
+        position: 'bottom center'
+    });
+    $('.qq').popup();
+    $(".hover_").on("mouseenter", function (e) {
+        var This = $(this);
+        var hin = This.attr("data-in");
+        This.addClass(hin);
+        This.one('webkitAnimationEnd mozAnimationEnd MSAnimationEndoanimationend animationend', function () {
+            $(this).removeClass(hin);
+        });
+    });
+
+</script>
+</body>
+</html>

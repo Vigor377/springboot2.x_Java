@@ -1,0 +1,32 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>后台管理</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/admin_login.css}"/>
+</head>
+<body style="background: url('https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/241f95cad1c8a7863cb5bacd6709c93d71cf5052.jpg')">
+<div class="admin_login_wrap">
+    <div class="adming_login_border">
+        <div class="admin_input">
+            <form th:action="@{/ToLogin}" method="post">
+                <ul class="admin_items">
+                    <li>
+                        <label for="user">用户名：</label>
+                        <input type="text" name="nickName" placeholder="博主名" id="user" size="40" class="admin_input_style" />
+                    </li>
+                    <li>
+                        <label for="pwd">密码：</label>
+                        <input type="password" name="password" placeholder="密码" id="pwd" size="40" class="admin_input_style" />
+                    </li>
+                    <p th:text="${msg}" style="color: red"></p>
+                    <li>
+                        <input type="submit" tabindex="3" value="登录" class="btn btn-primary" />
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

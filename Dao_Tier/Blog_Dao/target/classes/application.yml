@@ -1,0 +1,4 @@
+#����mybatis-plus��mapper xml�ļ���·��
+mybatis-plus:
+  mapper-locations: classpath:com/chen/pei/mapper/xml/*.xml
+

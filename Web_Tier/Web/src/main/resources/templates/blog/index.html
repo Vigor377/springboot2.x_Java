@@ -1,0 +1,23 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>简单通用文章系统后台管理模板</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<!--    导航部分-->
+<div th:include="blog/common :: nav"></div>
+<div class="container clearfix">
+<!--    左边导航-->
+<div th:include="blog/common :: leftBar"></div>
+    <!--/sidebar-->
+    <div class="main-wrap">
+        <p style="font-size: 50px;position: absolute;left: 650px;top: 100px">欢迎进入博客后台</p>
+        <div style="position:absolute;left: 600px;top: 200px"><img style="width: 500px;height: 400px" th:src="@{/images/welcome.gif}"></div>
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

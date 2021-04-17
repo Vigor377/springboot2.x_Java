@@ -1,4 +1,4 @@
-package com.chen.pei.pojo;
+package com.chen.pei.result;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

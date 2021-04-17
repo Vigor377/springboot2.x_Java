@@ -1,6 +1,6 @@
 package com.chen.pei.utils;
 
-import com.chen.pei.pojo.ResultMessage;
+import com.chen.pei.result.ResultMessage;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 //封装发送的消息内容

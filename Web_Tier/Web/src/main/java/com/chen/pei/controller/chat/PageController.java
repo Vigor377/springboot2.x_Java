@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //@RequestMapping("/Index")
 public class PageController {
 
-    @RequestMapping("Index/chat")
+    @RequestMapping("/chat")
     public String login(){
         return "chat/login";
     }
